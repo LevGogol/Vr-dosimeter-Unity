@@ -1,0 +1,362 @@
+fileFormatVersion: 2
+guid: 32031e8c1f3b2384dba5ae434b05265d
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: depositphotos_152890308-stock-illustration-electronic-numbers-are-red-the
+      1_0
+    21300002: depositphotos_152890308-stock-illustration-electronic-numbers-are-red-the
+      1_1
+    21300004: depositphotos_152890308-stock-illustration-electronic-numbers-are-red-the
+      1_2
+    21300006: depositphotos_152890308-stock-illustration-electronic-numbers-are-red-the
+      1_3
+    21300008: depositphotos_152890308-stock-illustration-electronic-numbers-are-red-the
+      1_4
+    21300010: depositphotos_152890308-stock-illustration-electronic-numbers-are-red-the
+      1_5
+    21300012: depositphotos_152890308-stock-illustration-electronic-numbers-are-red-the
+      1_6
+    21300014: depositphotos_152890308-stock-illustration-electronic-numbers-are-red-the
+      1_7
+    21300016: depositphotos_152890308-stock-illustration-electronic-numbers-are-red-the
+      1_8
+    21300018: depositphotos_152890308-stock-illustration-electronic-numbers-are-red-the
+      1_9
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: depositphotos_152890308-stock-illustration-electronic-numbers-are-red-the
+        1_0
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 616
+        width: 132
+        height: 282
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cb5688ac83d58f4c9c30ff7b8ac837c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_152890308-stock-illustration-electronic-numbers-are-red-the
+        1_1
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 178
+        width: 147
+        height: 268
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 888b6016eab557140a64b821cead55d4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_152890308-stock-illustration-electronic-numbers-are-red-the
+        1_2
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 613
+        width: 173
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c69d10b5ca0a36c49ad47b0dad23d286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_152890308-stock-illustration-electronic-numbers-are-red-the
+        1_3
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 611
+        width: 164
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0407413b8afc6094daa97ab1f44a488a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_152890308-stock-illustration-electronic-numbers-are-red-the
+        1_4
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 622
+        width: 168
+        height: 283
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d8819360dfb7a744bca7439d3ff910e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_152890308-stock-illustration-electronic-numbers-are-red-the
+        1_5
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 613
+        width: 157
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a44718766ce53b40b2233fc4b7d913a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_152890308-stock-illustration-electronic-numbers-are-red-the
+        1_6
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 162
+        width: 172
+        height: 296
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7410b587572e1654f98fc000fede3fa0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_152890308-stock-illustration-electronic-numbers-are-red-the
+        1_7
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 171
+        width: 163
+        height: 283
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00062c20254675e448aaa52c595b7d05
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_152890308-stock-illustration-electronic-numbers-are-red-the
+        1_8
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 178
+        width: 155
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9363a2663aa00ce4f8df63c6bbf7846a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_152890308-stock-illustration-electronic-numbers-are-red-the
+        1_9
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 171
+        width: 171
+        height: 281
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec2790a43d88279468ee8f8b207f82e5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 159fd4d9b0d535f42a7bcb9d791ed2a1
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
