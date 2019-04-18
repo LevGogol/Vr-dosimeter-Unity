@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Hose
+    uniqueID: 712158453
+    locked: 0
+  - name: Radiation
+    uniqueID: 1920127161
+    locked: 0

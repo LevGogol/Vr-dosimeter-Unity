@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2293933239631156755}
   - component: {fileID: 3316033864377213665}
   - component: {fileID: 3979008176956887968}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Radiation
   m_TagString: Untagged
   m_Icon: {fileID: 0}

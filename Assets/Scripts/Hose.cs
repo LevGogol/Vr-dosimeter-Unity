@@ -27,8 +27,8 @@ public class Hose : Interactive {
         }
     }
     
-    public void OnRadiation() {
-        Debug.Log("hi");
+    public void OnRadiation(float power) {
+        Debug.Log(power);
     }
 
 }
