@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Radiation : MonoBehaviour {
 
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +19,11 @@ public class Radiation : MonoBehaviour {
         
     }
 
-    private void OnTriggerEnter(Collider other) {
+    private void OnTriggerStay(Collider other) {
         Hose temp = other.gameObject.GetComponent<Hose>();
         if (temp != null) {
-            temp.OnRadiation();
+            float power = 1/Vector3.Distance(temp.transform.position, transform.position); //TODO деление на ноль. Нормализовать
+            temp.OnRadiation(power);
         }
     }
 
