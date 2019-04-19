@@ -15,6 +15,31 @@ public class Tablo : MonoBehaviour {
         numbers.SetActive(false);
     }
 
+    public void SetScore(int score)
+    {
+        //TODO: коробка знает только о табло. Здесь сделай изменение показателей.
+    }
+
+    public void EnablePowerLamp()
+    {
+        //TODO: включение лампочки сети
+    }
+
+    public void DisablePowerLamp()
+    {
+        //TODO: выключение лампочки сети
+    }
+
+    public void EnableRangeLamp()
+    {
+        //TODO: включение лампочки порога
+    }
+
+    public void DisableRangeLamp()
+    {
+        //TODO: выключение лампочки порога
+    }
+
     private void Start() {
 
     }
