@@ -28,6 +28,7 @@ public class Hose : Interactive {
     }
     
     public void OnRadiation(float power) {
+     //   BoxController.setScore(power);
         Debug.Log(power);
     }
 

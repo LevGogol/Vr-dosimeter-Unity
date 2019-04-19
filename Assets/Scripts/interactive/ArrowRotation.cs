@@ -8,11 +8,11 @@ public class ArrowRotation : Interactive {
     [SerializeField] [Range(0, 10)]private float speed;
 
     public void PointEnter() {
-        StartCoroutine("Rotate");
+        StartCoroutine(Rotate());
     }
     
     public void PointExit() {
-        StopCoroutine("Rotate");
+        StopCoroutine(Rotate());
     }
     
     public override void Action() {

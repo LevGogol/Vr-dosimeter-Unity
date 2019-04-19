@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoundTumbler : MonoBehaviour
+public class RoundTumbler : Interactive
 {
     // Start is called before the first frame update
     void Start()
@@ -13,6 +13,10 @@ public class RoundTumbler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    public override void Action() {
         
     }
 }

@@ -260,16 +260,11 @@
             </e>
           </e>
         </e>
-        <e p="Real-Time Procedural Cable Simple" t="Include">
-          <e p="ReadmeSimpleCable.txt" t="Include" />
-          <e p="ReadmeStaticCable.txt" t="Include" />
-          <e p="Scripts" t="Include">
-            <e p="Cable_Procedural_Simple.cs" t="Include" />
-            <e p="Cable_Procedural_Static.cs" t="Include" />
-          </e>
-        </e>
         <e p="Scripts" t="Include">
+          <e p="BoxController.cs" t="Include" />
+          <e p="Cable_Procedural_Simple.cs" t="Include" />
           <e p="CameraHit.cs" t="Include" />
+          <e p="Clocks.cs" t="Include" />
           <e p="Hose.cs" t="Include" />
           <e p="interactive" t="Include">
             <e p="ArrowRotation.cs" t="Include" />

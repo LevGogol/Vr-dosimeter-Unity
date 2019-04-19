@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckButton : MonoBehaviour
+public class CheckButton : Interactive
 {
     // Start is called before the first frame update
     void Start()
@@ -13,6 +13,10 @@ public class CheckButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    public override void Action() {
         
     }
 }

@@ -16,6 +16,6 @@ public class Tablo : MonoBehaviour {
     }
 
     private void Start() {
-  
+
     }
 }
