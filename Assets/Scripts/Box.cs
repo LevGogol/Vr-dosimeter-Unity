@@ -37,7 +37,7 @@ public class Box : MonoBehaviour
     public bool IsEnabledScoreboard() => scoreboardButton;
     public void SetScoreboard(bool enabled)
     {
-        updateScoreboard(enabled);
+        scoreboardButton = enabled;
         machine.Move();
     }
 
@@ -108,7 +108,7 @@ public class Box : MonoBehaviour
             },
             preparationForWork));
 
-        var powerOffTransition = new StateMachine.Transition(() => !IsPower(), powerOff, inactive);
+        var powerOffTransition = new StateMachine.Transition(() => !IsPower(), () => {powerOff(); Debug.Log("Power Off");}, inactive);
         preparationForWork.Add(new StateMachine.Transition(() => isPrepared, () => { Debug.Log("Box active"); }, active))
             .Add(powerOffTransition);
 
@@ -130,10 +130,10 @@ public class Box : MonoBehaviour
                 }, pressTestButton);
         activeWithoutScoreboard.Add(pressTestTransition)
             .Add(powerOffTransition)
-            .Add(new StateMachine.Transition(() => !scoreboardButton, () => {}, activeAlongWithScoreboard));
+            .Add(new StateMachine.Transition(() => !scoreboardButton, () => {updateScoreboard(scoreboardButton);}, activeAlongWithScoreboard));
         activeAlongWithScoreboard.Add(pressTestTransition)
             .Add(powerOffTransition)
-            .Add(new StateMachine.Transition(() => scoreboardButton, () => {}, activeWithoutScoreboard));
+            .Add(new StateMachine.Transition(() => scoreboardButton, () => {updateScoreboard(scoreboardButton);}, activeWithoutScoreboard));
 
         pressTestButton.Add(new StateMachine.Transition(() => isTest, startTest, test))
             .Add(powerOffTransition)
@@ -146,7 +146,6 @@ public class Box : MonoBehaviour
 
     private void updateScoreboard(bool enabled)
     {
-        scoreboardButton = enabled;
         if (enabled)
         {
             tablo.Enable();

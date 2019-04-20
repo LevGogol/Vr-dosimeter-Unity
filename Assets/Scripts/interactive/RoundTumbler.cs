@@ -11,4 +11,16 @@ public class RoundTumbler : Interactive
     public override void Action() {
         box.SetRange(box.NextRange());
     }
+
+    private void Start()
+    {
+        if (box == null)
+        {
+            box = GetComponentInParent<Box>();
+            if (box == null)
+            {
+                Debug.LogError("Not found box");
+            }
+        }
+    }
 }

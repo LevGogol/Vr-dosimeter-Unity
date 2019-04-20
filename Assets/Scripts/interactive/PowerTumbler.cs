@@ -23,4 +23,16 @@ public class PowerTumbler : Interactive {
         IsOn = !isOn;
         //    transform.Rotate(new Vector3(0, 180, 0));   не работает пока у моделек нет центра
     }
+
+    private void Start()
+    {
+        if (box == null)
+        {
+            box = GetComponentInParent<Box>();
+            if (box == null)
+            {
+                Debug.LogError("Not found box");
+            }
+        }
+    }
 }
