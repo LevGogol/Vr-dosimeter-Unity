@@ -15,9 +15,12 @@ public class Tablo : MonoBehaviour {
         numbers.SetActive(false);
     }
 
-    public void SetScore(int score)
+    public void SetScore(float score)
     {
-        //TODO: коробка знает только о табло. Здесь сделай изменение показателей.
+        if (numbers.activeSelf)
+        {
+            numbers.GetComponent<Numbers>().SetNumber((int) score);
+        }
     }
 
     public void EnablePowerLamp()

@@ -4,19 +4,39 @@ using UnityEngine;
 
 public class CheckButton : Interactive
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Box box;
+    
+    private bool isOn = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public bool IsOn {
+        get => isOn;
+        set {
+            if(isOn == value) return;
 
+            isOn = value;
+            if (isOn)
+            {
+                box.PressingOnTestButton();
+                return;
+            }
+            box.ReleaseTheTestButton();
+        }
+    }
+    
     public override void Action() {
-        
+        IsOn = !isOn;
+        //    transform.Rotate(new Vector3(0, 180, 0));   не работает пока у моделек нет центра
+    }
+
+    private void Start()
+    {
+        if (box == null)
+        {
+            box = GetComponentInParent<Box>();
+            if (box == null)
+            {
+                Debug.LogError("Not found box");
+            }
+        }
     }
 }

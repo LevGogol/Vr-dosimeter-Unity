@@ -1,22 +1,26 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RoundTumbler : Interactive
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private Box box;
+    
 
     public override void Action() {
-        
+        box.SetRange(box.NextRange());
+    }
+
+    private void Start()
+    {
+        if (box == null)
+        {
+            box = GetComponentInParent<Box>();
+            if (box == null)
+            {
+                Debug.LogError("Not found box");
+            }
+        }
     }
 }

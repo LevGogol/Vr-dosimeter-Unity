@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
 
-public class BoxController : MonoBehaviour
+public class Box : MonoBehaviour
 {
     private const int MAX_SCORE = 9999;
     private const int FIVE_MINUTE = 5000/*60_000 * 5*/;
@@ -20,7 +20,7 @@ public class BoxController : MonoBehaviour
     private bool powerLamp = false;
     private bool rangeLamp = false;
 
-    private int score = 0;
+    private float score = 0f;
     
     private bool isPrepared = false;
     private bool isTest = false;
@@ -37,7 +37,7 @@ public class BoxController : MonoBehaviour
     public bool IsEnabledScoreboard() => scoreboardButton;
     public void SetScoreboard(bool enabled)
     {
-        updateScoreboard(enabled);
+        scoreboardButton = enabled;
         machine.Move();
     }
 
@@ -59,9 +59,10 @@ public class BoxController : MonoBehaviour
 
     public Range GetRange() => range;
     public void SetRange(Range range) => changeRange(range);
+    public Range NextRange() => nextRange();
 
-    public int GetScore() => score;
-    public void SetScore(int score) => changeScore(score);
+    public float GetScore() => score * (int) GetRange();
+    public void SetScore(float score) => changeScore(score);
 
     public bool IsPowerLampOn() => powerLamp;
     public bool IsRangeLampOn() => rangeLamp;
@@ -107,7 +108,7 @@ public class BoxController : MonoBehaviour
             },
             preparationForWork));
 
-        var powerOffTransition = new StateMachine.Transition(() => !IsPower(), powerOff, inactive);
+        var powerOffTransition = new StateMachine.Transition(() => !IsPower(), () => {powerOff(); Debug.Log("Power Off");}, inactive);
         preparationForWork.Add(new StateMachine.Transition(() => isPrepared, () => { Debug.Log("Box active"); }, active))
             .Add(powerOffTransition);
 
@@ -129,10 +130,10 @@ public class BoxController : MonoBehaviour
                 }, pressTestButton);
         activeWithoutScoreboard.Add(pressTestTransition)
             .Add(powerOffTransition)
-            .Add(new StateMachine.Transition(() => !scoreboardButton, () => {}, activeAlongWithScoreboard));
+            .Add(new StateMachine.Transition(() => !scoreboardButton, () => {updateScoreboard(scoreboardButton);}, activeAlongWithScoreboard));
         activeAlongWithScoreboard.Add(pressTestTransition)
             .Add(powerOffTransition)
-            .Add(new StateMachine.Transition(() => scoreboardButton, () => {}, activeWithoutScoreboard));
+            .Add(new StateMachine.Transition(() => scoreboardButton, () => {updateScoreboard(scoreboardButton);}, activeWithoutScoreboard));
 
         pressTestButton.Add(new StateMachine.Transition(() => isTest, startTest, test))
             .Add(powerOffTransition)
@@ -145,7 +146,6 @@ public class BoxController : MonoBehaviour
 
     private void updateScoreboard(bool enabled)
     {
-        scoreboardButton = enabled;
         if (enabled)
         {
             tablo.Enable();
@@ -198,11 +198,25 @@ public class BoxController : MonoBehaviour
     {
         this.range = range;
     }
+
+    private Range nextRange()
+    {
+        var ranges = Enum.GetValues(typeof(Range));
+        for (var i = 0; i < ranges.Length; i++)
+        {
+            if (ranges.GetValue(i).Equals(GetRange()))
+            {
+                return (Range) ranges.GetValue(++i >= ranges.Length ? 0 : i);
+            }
+        }
+
+        return Range.Val1;
+    }
     
-    private void changeScore(int score)
+    private void changeScore(float score)
     {
         this.score = score;
-        tablo.SetScore(score);   
+        tablo.SetScore(GetScore());   
     }
 
     private void startTest()
