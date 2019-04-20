@@ -47,28 +47,12 @@ public class StateMachine : MonoBehaviour
     {
         isStopAfterMove = false;
         
-        TasksPool.Instance.Add(DateTime.Now.AddMilliseconds(millisecond), () =>
+        TasksPool.Instance.Add(TasksPool.Instance.NowTime.AddMilliseconds(millisecond), () =>
         {
             payload();
             Move();
         });
-//        StartCoroutine(moveAfter(millisecond, payload));
         return this;
-    }
-
-    private IEnumerator moveAfter(int millisecond, Payload payload)
-    {
-        var startTime = DateTime.Now;
-        while (DateTime.Now < startTime.AddMilliseconds(millisecond))
-        {
-            if (isStopAfterMove) 
-                yield break;
-                
-            yield return null;
-        }
-
-        payload();
-        Move();
     }
 
     public StateMachine Add(State state)

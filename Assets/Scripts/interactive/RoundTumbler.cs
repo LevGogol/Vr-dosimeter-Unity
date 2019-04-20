@@ -9,6 +9,7 @@ public class RoundTumbler : Interactive
     
 
     public override void Action() {
+        Debug.Log("WTF?");
         box.SetRange(box.NextRange());
     }
 

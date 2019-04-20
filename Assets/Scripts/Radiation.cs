@@ -17,5 +17,9 @@ public class Radiation : MonoBehaviour
         temp.OnRadiation(power * attenuationCoefficient);
     }
 
-
+    private void OnTriggerExit(Collider other) {
+        Hose temp = other.gameObject.GetComponent<Hose>();
+        if (temp == null) return;
+        temp.OnRadiation(0);
+    }
 }

@@ -261,15 +261,15 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="BoxController.cs" t="Include" />
+          <e p="Box.cs" t="Include" />
           <e p="Cable_Procedural_Simple.cs" t="Include" />
           <e p="CameraHit.cs" t="Include" />
-          <e p="Clocks.cs" t="Include" />
           <e p="Hose.cs" t="Include" />
           <e p="interactive" t="Include">
             <e p="ArrowRotation.cs" t="Include" />
             <e p="ChangeModeButton.cs" t="Include" />
             <e p="CheckButton.cs" t="Include" />
+            <e p="Clocks.cs" t="Include" />
             <e p="Interactive.cs" t="Include" />
             <e p="PowerTumbler.cs" t="Include" />
             <e p="RoundTumbler.cs" t="Include" />
@@ -279,7 +279,9 @@
           <e p="Radiation.cs" t="Include" />
           <e p="Receiver.cs" t="Include" />
           <e p="Source.cs" t="Include" />
+          <e p="StateMachine.cs" t="Include" />
           <e p="Tablo.cs" t="Include" />
+          <e p="TasksPool.cs" t="Include" />
         </e>
       </e>
       <e p="Library" t="ExcludeRecursive" />

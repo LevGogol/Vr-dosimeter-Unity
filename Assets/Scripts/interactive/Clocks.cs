@@ -35,13 +35,13 @@ public class Clocks : Interactive {
         
     }
 
-    public override void PointEnter() {
+    public void PointEnter() {
         isContinue = true;
         speed = 0;
         StartCoroutine(Acceleration());
     }
     
-    public override void PointExit() {
+    public void PointExit() {
         isContinue = false;
         StopCoroutine(Acceleration());
     }

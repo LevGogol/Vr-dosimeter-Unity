@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Interactive : MonoBehaviour{
-    public virtual void PointEnter() {
+    public void PointEnter() {
         Invoke("Action", 1.5f);
     }
 
-    public virtual void PointExit() {
+    public void PointExit() {
         CancelInvoke("Action");
     }
 

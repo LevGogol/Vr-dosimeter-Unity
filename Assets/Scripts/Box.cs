@@ -78,8 +78,6 @@ public class Box : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(TasksPool.Instance.Courutine());
-        
         var inactive = new StateMachine.State();
         var preparationForWork = new StateMachine.State();
         var active = new StateMachine.State();
@@ -196,6 +194,7 @@ public class Box : MonoBehaviour
 
     private void changeRange(Range range)
     {
+        Debug.Log("Change range: " + range);
         this.range = range;
     }
 
