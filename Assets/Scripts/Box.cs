@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
 
-public class BoxController : MonoBehaviour
+public class Box : MonoBehaviour
 {
     private const int MAX_SCORE = 9999;
     private const int FIVE_MINUTE = 5000/*60_000 * 5*/;
@@ -20,7 +20,7 @@ public class BoxController : MonoBehaviour
     private bool powerLamp = false;
     private bool rangeLamp = false;
 
-    private int score = 0;
+    private float score = 0f;
     
     private bool isPrepared = false;
     private bool isTest = false;
@@ -59,9 +59,10 @@ public class BoxController : MonoBehaviour
 
     public Range GetRange() => range;
     public void SetRange(Range range) => changeRange(range);
+    public Range NextRange() => nextRange();
 
-    public int GetScore() => score;
-    public void SetScore(int score) => changeScore(score);
+    public float GetScore() => score * (int) GetRange();
+    public void SetScore(float score) => changeScore(score);
 
     public bool IsPowerLampOn() => powerLamp;
     public bool IsRangeLampOn() => rangeLamp;
@@ -198,11 +199,25 @@ public class BoxController : MonoBehaviour
     {
         this.range = range;
     }
+
+    private Range nextRange()
+    {
+        var ranges = Enum.GetValues(typeof(Range));
+        for (var i = 0; i < ranges.Length; i++)
+        {
+            if (ranges.GetValue(i).Equals(GetRange()))
+            {
+                return (Range) ranges.GetValue(++i >= ranges.Length ? 0 : i);
+            }
+        }
+
+        return Range.Val1;
+    }
     
-    private void changeScore(int score)
+    private void changeScore(float score)
     {
         this.score = score;
-        tablo.SetScore(score);   
+        tablo.SetScore(GetScore());   
     }
 
     private void startTest()

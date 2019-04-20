@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class TableTumbler : Interactive
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Box box;
+    
+    private bool isOn = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public bool IsOn {
+        get => isOn;
+        set {
+            if(isOn == value) return;
+            
+            isOn = value;
+            box.SetScoreboard(isOn);
+        }
     }
-
+    
     public override void Action() {
-        
+        IsOn = !isOn;
+        //    transform.Rotate(new Vector3(0, 180, 0));   не работает пока у моделек нет центра
     }
 }

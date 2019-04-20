@@ -1,8 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.UIElements;
 
-public class Hose : Interactive {
+public class Hose : Interactive
+{
+
+    [SerializeField] private Box box;
     private bool isTaked;
     public Camera camera;
     [Range(0, 1)]
@@ -27,8 +31,9 @@ public class Hose : Interactive {
         }
     }
     
-    public void OnRadiation(float power) {
-     //   BoxController.setScore(power);
+    public void OnRadiation(float power)
+    {
+        box.SetScore(power);
         Debug.Log(power);
     }
 

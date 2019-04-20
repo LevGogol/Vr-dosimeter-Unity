@@ -5,19 +5,17 @@ using System.Data.Common;
 using UnityEngine;
 
 public class PowerTumbler : Interactive {
-    [SerializeField] private Tablo tablo;
+    [SerializeField] private Box box;
     
     private bool isOn = false;
 
     public bool IsOn {
-        get { return isOn;}
+        get => isOn;
         set {
+            if(isOn == value) return;
+            
             isOn = value;
-            if (isOn) {
-                tablo.Enable();
-            } else {
-                tablo.Disable();
-            }
+            box.SetPower(isOn);
         }
     }
     
