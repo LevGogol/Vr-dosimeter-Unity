@@ -9,7 +9,9 @@ public class RoundTumbler : Interactive
     
 
     public override void Action() {
+        Box.Range curRange = box.GetRange();
         box.SetRange(box.NextRange());
+        transform.parent.parent.Rotate(new Vector3(0, curRange > box.GetRange() ? -90 : 18, 0));
     }
 
     private void Start()

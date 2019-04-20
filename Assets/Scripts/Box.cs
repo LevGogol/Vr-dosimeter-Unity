@@ -108,7 +108,8 @@ public class Box : MonoBehaviour
             preparationForWork));
 
         var powerOffTransition = new StateMachine.Transition(() => !IsPower(), () => {powerOff(); Debug.Log("Power Off");}, inactive);
-        preparationForWork.Add(new StateMachine.Transition(() => isPrepared, () => { Debug.Log("Box active"); }, active))
+        preparationForWork
+            .Add(new StateMachine.Transition(() => isPrepared, () => { Debug.Log("Box active"); }, active))
             .Add(powerOffTransition);
 
         active.Add(new StateMachine.Transition(IsEnabledScoreboard, () => {Debug.Log("EnabledScoreboard state"); }, activeWithoutScoreboard))
