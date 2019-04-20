@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bc64c158-6499-402c-8a5e-bf96b3d905d1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.andoid/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.andoid/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.andoid/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.andoid/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/HelloVR.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/HelloVR.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Box.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Box.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Clocks.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Clocks.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Radiation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Radiation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TasksPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TasksPool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/interactive/ArrowRotation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/interactive/ArrowRotation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/interactive/Interactive.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/interactive/Interactive.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/interactive/RoundTumbler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/interactive/RoundTumbler.cs" afterDir="false" />
-    </list>
+    <list default="true" id="bc64c158-6499-402c-8a5e-bf96b3d905d1" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -478,12 +465,12 @@
       <workItem from="1554490043159" duration="2943000" />
       <workItem from="1554642408386" duration="18611000" />
       <workItem from="1555445996278" duration="733000" />
-      <workItem from="1555606337446" duration="15238000" />
+      <workItem from="1555606337446" duration="15861000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47765000" />
+    <option name="totallyTimeSpent" value="48388000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -496,15 +483,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1288" y="-8" width="1296" height="1000" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27588996" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27588996" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49919093" visible="true" weight="0.3995381" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49919093" weight="0.3995381" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -514,8 +500,8 @@
       <window_info anchor="bottom" id="Unity" order="10" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Unit Tests" order="12" />
-      <window_info anchor="bottom" id="Terminal" order="13" />
-      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.5008091" side_tool="true" visible="true" weight="0.3995381" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="13" visible="true" weight="0.3290993" />
+      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.5008091" side_tool="true" weight="0.3995381" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
