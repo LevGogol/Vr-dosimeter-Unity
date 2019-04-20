@@ -6,13 +6,14 @@ public class TableTumbler : Interactive
 {
     [SerializeField] private Box box;
     
-    private bool isOn = false;
+    private bool isOn = true;
 
     public bool IsOn {
         get => isOn;
         set {
             if(isOn == value) return;
             
+            transform.parent.parent.Rotate(new Vector3(0, 180, 0));
             isOn = value;
             box.SetScoreboard(isOn);
         }

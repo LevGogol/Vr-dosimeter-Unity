@@ -14,6 +14,7 @@ public class PowerTumbler : Interactive {
         set {
             if(isOn == value) return;
             
+            transform.parent.parent.Rotate(new Vector3(0, 180, 0)); 
             isOn = value;
             box.SetPower(isOn);
         }
@@ -21,7 +22,6 @@ public class PowerTumbler : Interactive {
     
     public override void Action() {
         IsOn = !isOn;
-        //    transform.Rotate(new Vector3(0, 180, 0));   не работает пока у моделек нет центра
     }
 
     private void Start()

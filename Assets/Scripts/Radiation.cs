@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 public class Radiation : MonoBehaviour
 {
-    public float power = 0.000051f; 
+    public float power = 2f; 
     
     private void OnTriggerStay(Collider other) {
         Hose temp = other.gameObject.GetComponent<Hose>();

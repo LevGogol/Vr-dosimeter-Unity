@@ -53,6 +53,7 @@ public class Box : MonoBehaviour
     {
         {
             testButton = false;
+            isTest = false;
             machine.Move();
         }
     }
@@ -61,7 +62,7 @@ public class Box : MonoBehaviour
     public void SetRange(Range range) => changeRange(range);
     public Range NextRange() => nextRange();
 
-    public float GetScore() => score * (int) GetRange();
+    public float GetScore() => score;
     public void SetScore(float score) => changeScore(score);
 
     public bool IsPowerLampOn() => powerLamp;
@@ -107,7 +108,8 @@ public class Box : MonoBehaviour
             preparationForWork));
 
         var powerOffTransition = new StateMachine.Transition(() => !IsPower(), () => {powerOff(); Debug.Log("Power Off");}, inactive);
-        preparationForWork.Add(new StateMachine.Transition(() => isPrepared, () => { Debug.Log("Box active"); }, active))
+        preparationForWork
+            .Add(new StateMachine.Transition(() => isPrepared, () => { Debug.Log("Box active"); }, active))
             .Add(powerOffTransition);
 
         active.Add(new StateMachine.Transition(IsEnabledScoreboard, () => {Debug.Log("EnabledScoreboard state"); }, activeWithoutScoreboard))
@@ -135,7 +137,7 @@ public class Box : MonoBehaviour
 
         pressTestButton.Add(new StateMachine.Transition(() => isTest, startTest, test))
             .Add(powerOffTransition)
-            .Add(new StateMachine.Transition(() => !testButton, () => { }, active));
+            .Add(new StateMachine.Transition(() => !testButton, () => { Debug.Log("Active state"); }, active));
 
         test.Add(new StateMachine.Transition(() => !IsPower(), () => {endTest(); powerOff();}, inactive))
             .Add(new StateMachine.Transition(() => !testButton, endTest, active));
@@ -152,6 +154,7 @@ public class Box : MonoBehaviour
         {
             tablo.Disable();
         }
+        SetPowerLamp(IsPower());
     }
 
     private void SetPowerLamp(bool enabled)
@@ -215,18 +218,29 @@ public class Box : MonoBehaviour
     private void changeScore(float score)
     {
         this.score = score;
-        tablo.SetScore(GetScore());   
+        tablo.SetScore(GetScore());
+        if (score > (int) range && IsPower() && !isTest)
+        {
+            tablo.EnableRangeLamp();
+        }
+        else
+        {
+            tablo.DisableRangeLamp();
+        }
     }
 
+    //При запуске теста
     private void startTest()
     {
         Debug.Log("Start test");
-        //TODO: при запуске теста
+        tablo.EnableRangeLamp();
     }
-    
+
+    //При конце теста
     private void endTest()
     {
         Debug.Log("End test");
-        //TODO: при конце теста
+        isTest = false;
+        tablo.DisableRangeLamp();
     }
 }
