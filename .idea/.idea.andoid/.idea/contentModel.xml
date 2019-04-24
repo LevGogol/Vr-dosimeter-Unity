@@ -8,6 +8,12 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Day-Night Skyboxes" t="Include">
+          <e p="readme.txt" t="Include" />
+          <e p="Textures" t="Include">
+            <e p="Readme for Assigning.txt" t="Include" />
+          </e>
+        </e>
         <e p="GoogleVR" t="Include">
           <e p="Beta" t="Include">
             <e p="Demos" t="Include">

@@ -11,7 +11,7 @@ public class ChangeModeButton : Interactive {
     public override void Action() {
 
         if (isEnable) {
-            box.transform.position = new Vector3(-2, 1, 3.6f);
+            box.transform.position = new Vector3(-2.341f, 1.457f, 3.796f);
             transform.position = new Vector3(-2, 2, 3.6f);
             box.transform.rotation = Quaternion.Euler(0, 180, 0);
             isEnable = false;
