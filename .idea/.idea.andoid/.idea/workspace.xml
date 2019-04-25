@@ -2,19 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc64c158-6499-402c-8a5e-bf96b3d905d1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.andoid/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.andoid/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.andoid/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.andoid/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Barrel 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Barrel 1.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Splash.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Splash.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Terrain.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/New Terrain.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/HelloVR.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/HelloVR.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Box.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Box.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TasksPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TasksPool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/interactive/ChangeModeButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/interactive/ChangeModeButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/interactive/CheckButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/interactive/CheckButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/interactive/PowerTumbler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/interactive/PowerTumbler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/interactive/RoundTumbler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/interactive/RoundTumbler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/interactive/TableTumbler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/interactive/TableTumbler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/image.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/image_12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/image_12.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/image_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/image_2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/image_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/image_3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/image_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/image_7.png.meta" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,12 +45,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="3781" />
+          <entry key="cs" value="3787" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C#" value="3781" />
+          <entry key="C#" value="3787" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -138,7 +137,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/interactive/CheckButton.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
@@ -200,18 +199,18 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/interactive/RoundTumbler.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="186">
+              <caret line="14" column="97" lean-forward="true" selection-start-line="14" selection-start-column="97" selection-end-line="14" selection-end-column="97" />
               <folding>
-                <marker date="1556139805224" expanded="false" signature="6:92" ph="..." />
-                <marker date="1556139805224" expanded="true" signature="133:734" ph="{...}" />
-                <marker date="1556139805224" expanded="true" signature="241:451" ph="{...}" />
-                <marker date="1556139805224" expanded="true" signature="477:732" ph="{...}" />
-                <marker date="1556139805224" expanded="true" signature="508:681" ph="{...}" />
-                <marker date="1556139805224" expanded="true" signature="594:671" ph="{...}" />
+                <marker date="1556225561471" expanded="false" signature="6:92" ph="..." />
+                <marker date="1556225561471" expanded="true" signature="133:735" ph="{...}" />
+                <marker date="1556225561471" expanded="true" signature="241:452" ph="{...}" />
+                <marker date="1556225561471" expanded="true" signature="478:733" ph="{...}" />
+                <marker date="1556225561471" expanded="true" signature="509:682" ph="{...}" />
+                <marker date="1556225561471" expanded="true" signature="595:672" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -347,8 +346,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/interactive/TableTumbler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TasksPool.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Box.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/interactive/RoundTumbler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/interactive/CheckButton.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/interactive/RoundTumbler.cs" />
       </list>
     </option>
   </component>
@@ -464,12 +463,12 @@
       <workItem from="1554642408386" duration="18611000" />
       <workItem from="1555445996278" duration="733000" />
       <workItem from="1555606337446" duration="21679000" />
-      <workItem from="1556139075761" duration="1879000" />
+      <workItem from="1556139075761" duration="3093000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56085000" />
+    <option name="totallyTimeSpent" value="57299000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -481,7 +480,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1288" y="-8" width="1296" height="1000" extended-state="7" />
+    <frame x="-1288" y="-8" width="1296" height="1000" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27912623" />
@@ -838,21 +837,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/interactive/RoundTumbler.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <marker date="1556139805224" expanded="false" signature="6:92" ph="..." />
-            <marker date="1556139805224" expanded="true" signature="133:734" ph="{...}" />
-            <marker date="1556139805224" expanded="true" signature="241:451" ph="{...}" />
-            <marker date="1556139805224" expanded="true" signature="477:732" ph="{...}" />
-            <marker date="1556139805224" expanded="true" signature="508:681" ph="{...}" />
-            <marker date="1556139805224" expanded="true" signature="594:671" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/interactive/CheckButton.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -869,6 +853,21 @@
             <marker date="1556140355640" expanded="true" signature="997:1252" ph="{...}" />
             <marker date="1556140355640" expanded="true" signature="1028:1201" ph="{...}" />
             <marker date="1556140355640" expanded="true" signature="1114:1191" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/interactive/RoundTumbler.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="14" column="97" lean-forward="true" selection-start-line="14" selection-start-column="97" selection-end-line="14" selection-end-column="97" />
+          <folding>
+            <marker date="1556225561471" expanded="false" signature="6:92" ph="..." />
+            <marker date="1556225561471" expanded="true" signature="133:735" ph="{...}" />
+            <marker date="1556225561471" expanded="true" signature="241:452" ph="{...}" />
+            <marker date="1556225561471" expanded="true" signature="478:733" ph="{...}" />
+            <marker date="1556225561471" expanded="true" signature="509:682" ph="{...}" />
+            <marker date="1556225561471" expanded="true" signature="595:672" ph="{...}" />
           </folding>
         </state>
       </provider>
