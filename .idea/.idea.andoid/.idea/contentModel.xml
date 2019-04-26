@@ -267,6 +267,7 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="BoardStorage.cs" t="Include" />
           <e p="Box.cs" t="Include" />
           <e p="Cable_Procedural_Simple.cs" t="Include" />
           <e p="CameraHit.cs" t="Include" />
