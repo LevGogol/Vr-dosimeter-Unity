@@ -6,22 +6,40 @@ using UnityEngine;
 
 public class PowerTumbler : Interactive {
     [SerializeField] private Box box;
+    private AudioSource click;
+    [SerializeField] private AudioClip onSound;
+    [SerializeField] private AudioClip offSound;
     
-    private bool isOn = false;
+    private bool isOnTumbler = false;
 
-    public bool IsOn {
-        get => isOn;
-        set {
-            if(isOn == value) return;
-            
-            isOn = value;
-            box.SetPower(isOn);
+    public void Click()
+    {
+        bool isOnPower = box.IsPower();
+        box.SetPower(!isOnPower);
+        bool isOnTumblerNow = box.IsPower();
+
+        RotationTumbler();
+        ClickSound(isOnTumblerNow);
+        isOnTumbler = isOnTumblerNow;
+    }
+
+    public void RotationTumbler()
+    {
+        if (box.IsPower() != isOnTumbler)
+        {
+            transform.parent.parent.Rotate(0, 180, 0);
+            isOnTumbler = box.IsPower();
         }
+    }
+
+    private void ClickSound(bool isOn)
+    {
+        click.clip = isOn ? onSound : offSound;
+        click.Play();
     }
     
     public override void Action() {
-        IsOn = !isOn;
-        //    transform.Rotate(new Vector3(0, 180, 0));   не работает пока у моделек нет центра
+        Click();
     }
 
     private void Start()
@@ -34,5 +52,7 @@ public class PowerTumbler : Interactive {
                 Debug.LogError("Not found box");
             }
         }
+
+        click = GetComponent<AudioSource>();
     }
 }

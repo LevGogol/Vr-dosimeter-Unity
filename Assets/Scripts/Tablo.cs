@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Tablo : MonoBehaviour {
     [SerializeField] private GameObject numbers;
-    [SerializeField] private GameObject porog;
-    [SerializeField] private GameObject Power;
+    [SerializeField] private GameObject powerLamp;
+    [SerializeField] private GameObject rangeLamp;
     
     public void Enable() {
         numbers.SetActive(true);
@@ -25,22 +25,22 @@ public class Tablo : MonoBehaviour {
 
     public void EnablePowerLamp()
     {
-        //TODO: включение лампочки сети
+        powerLamp.SetActive(true);
     }
 
     public void DisablePowerLamp()
     {
-        //TODO: выключение лампочки сети
+        powerLamp.SetActive(false);
     }
 
     public void EnableRangeLamp()
     {
-        //TODO: включение лампочки порога
+        rangeLamp.SetActive(true);
     }
 
     public void DisableRangeLamp()
     {
-        //TODO: выключение лампочки порога
+        rangeLamp.SetActive(false);
     }
 
     private void Start() {

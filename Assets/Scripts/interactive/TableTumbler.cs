@@ -5,22 +5,40 @@ using UnityEngine;
 public class TableTumbler : Interactive
 {
     [SerializeField] private Box box;
-    
-    private bool isOn = false;
+    private AudioSource click;
+    [SerializeField] private AudioClip onSound;
+    [SerializeField] private AudioClip offSound;
 
-    public bool IsOn {
-        get => isOn;
-        set {
-            if(isOn == value) return;
-            
-            isOn = value;
-            box.SetScoreboard(isOn);
+    private bool isOnTumbler = true;
+
+    public void Click()
+    {
+        bool isOnScoreboard = box.IsEnabledScoreboard();
+        box.SetScoreboard(!isOnScoreboard);
+        bool isOnTumblerNow = box.IsEnabledScoreboard();
+
+        RotationTumbler();
+        ClickSound(isOnTumblerNow);
+        isOnTumbler = isOnTumblerNow;
+    }
+
+    public void RotationTumbler()
+    {
+        if (box.IsEnabledScoreboard() != isOnTumbler)
+        {
+            transform.parent.parent.Rotate(0, 180, 0);
+            isOnTumbler = box.IsEnabledScoreboard();
         }
     }
-    
+
+    private void ClickSound(bool isOn)
+    {
+        click.clip = isOn ? onSound : offSound;
+        click.Play();
+    }
+
     public override void Action() {
-        IsOn = !isOn;
-        //    transform.Rotate(new Vector3(0, 180, 0));   не работает пока у моделек нет центра
+        Click();
     }
 
     private void Start()
@@ -33,5 +51,6 @@ public class TableTumbler : Interactive
                 Debug.LogError("Not found box");
             }
         }
+        click = GetComponent<AudioSource>();
     }
 }

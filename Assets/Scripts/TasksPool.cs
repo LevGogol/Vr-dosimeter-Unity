@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 
 public class TasksPool : MonoBehaviour {
@@ -14,7 +12,23 @@ public class TasksPool : MonoBehaviour {
 
     public DateTime NowTime => clocks.NowTime;
 
+    public void Add(string tag, DateTime time, Task.Payload payload) => tasks.Add(new Task(tag, time, payload));
     public void Add(DateTime time, Task.Payload payload) => tasks.Add(new Task(time, payload));
+
+    public int Clean(string tag)
+    {
+        var count = 0;
+        for (var i = tasks.Count - 1; i >= 0; i--)
+        {
+            if (tasks[i].tag.Equals(tag))
+            {
+                tasks.RemoveAt(i);
+                count++;
+            }
+        }
+
+        return count;
+    }
 
     private void Start() {
         instance = this;
@@ -27,8 +41,9 @@ public class TasksPool : MonoBehaviour {
         var curTime = clocks.NowTime;
         for (var i = tasks.Count - 1; i >= 0; i--)
         {
-            if (tasks[i].TaskTime > curTime) continue;
+            if (i >= tasks.Count || tasks[i].TaskTime > curTime) continue;
             tasks[i].TaskPayload();
+            if (i >= tasks.Count) continue;
             tasks.RemoveAt(i);
         }
        
@@ -37,12 +52,20 @@ public class TasksPool : MonoBehaviour {
     public class Task
     {
         public delegate void Payload();
-        
+
+        public readonly string tag = null;
         public readonly DateTime TaskTime;
         public readonly Payload TaskPayload;
 
         public Task(DateTime time, Payload payload)
         {
+            TaskTime = time;
+            TaskPayload = payload;
+        }
+        
+        public Task(string tag, DateTime time, Payload payload)
+        {
+            this.tag = tag;
             TaskTime = time;
             TaskPayload = payload;
         }

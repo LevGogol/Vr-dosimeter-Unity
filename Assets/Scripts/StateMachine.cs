@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateMachine : MonoBehaviour
+public class StateMachine
 {
     private State currentState;
     private List<State> states = new List<State>();
@@ -43,11 +43,13 @@ public class StateMachine : MonoBehaviour
         return this;
     }
 
-    public StateMachine MoveAfter(int millisecond, Payload payload)
+    public StateMachine MoveAfter(int millisecond, Payload payload) => MoveAfter(null, millisecond, payload);
+
+    public StateMachine MoveAfter(string tag, int millisecond, Payload payload)
     {
         isStopAfterMove = false;
         
-        TasksPool.Instance.Add(TasksPool.Instance.NowTime.AddMilliseconds(millisecond), () =>
+        TasksPool.Instance.Add(tag, TasksPool.Instance.NowTime.AddMilliseconds(millisecond), () =>
         {
             payload();
             Move();
