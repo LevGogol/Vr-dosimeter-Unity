@@ -12,7 +12,7 @@ public class BoxSaver : MonoBehaviour
 
     private Dictionary<int, Data> dataMap = new Dictionary<int, Data>();
 
-    private void Start()
+    private void Awake()
     {
         Instance = this;
         
@@ -35,7 +35,8 @@ public class BoxSaver : MonoBehaviour
     public void StateLoad(int id)
     {
         if(id < 0) return;
-        
+
+        TasksPool.Instance.Clean("box");
         var data = dataMap[id];
         if (data.boxFields == null)
         {
