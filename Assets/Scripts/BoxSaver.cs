@@ -10,9 +10,7 @@ public class BoxSaver : MonoBehaviour
 
     public static BoxSaver Instance { get; private set; }
 
-    private Dictionary<string, object> boxFields;
-    private Dictionary<string, object> machineFields;
-    private Quaternion rangeRotation;
+    private Dictionary<int, Data> dataMap = new Dictionary<int, Data>();
 
     private void Start()
     {
@@ -22,26 +20,34 @@ public class BoxSaver : MonoBehaviour
         if(box == null) Debug.LogError("Not found Box");
     }
 
-    public void StateSave()
+    public void StateSave() => StateSave(dataMap.Count);
+    
+    public void StateSave(int id)
     {
-        boxFields = GetFieldsMap(box);
-        machineFields = GetFieldsMap(boxFields["machine"]);
-        rangeRotation = GetComponentInChildren<RoundTumbler>().GetRotation();
+        var boxFields = GetFieldsMap(box);
+        var machineFields = GetFieldsMap(boxFields["machine"]);
+        var rangeRotation = GetComponentInChildren<RoundTumbler>().GetRotation();
+        dataMap.Add(id, new Data(boxFields, machineFields, rangeRotation));
     }
 
-    public void StateLoad()
+    public void StateLoad() => StateLoad(dataMap.Count - 1);
+    
+    public void StateLoad(int id)
     {
-        if (boxFields == null)
+        if(id < 0) return;
+        
+        var data = dataMap[id];
+        if (data.boxFields == null)
         {
             return;
         }
 
-        SetFields(box, boxFields);
-        SetFields(boxFields["machine"], machineFields);
+        SetFields(box, data.boxFields);
+        SetFields(data.boxFields["machine"], data.machineFields);
         
         GetComponentInChildren<TableTumbler>().RotationTumbler();
         GetComponentInChildren<PowerTumbler>().RotationTumbler();
-        GetComponentInChildren<RoundTumbler>().SetRotation(rangeRotation);
+        GetComponentInChildren<RoundTumbler>().SetRotation(data.rangeRotation);
         UpdateTablo();
     }
 
@@ -88,4 +94,18 @@ public class BoxSaver : MonoBehaviour
     }
 
     private static IEnumerable<FieldInfo> GetFields(object obj) => obj.GetType().GetFields(BindingFlags.Instance | BindingFlags.NonPublic);
+
+    private class Data
+    {
+        public readonly Dictionary<string, object> boxFields;
+        public readonly Dictionary<string, object> machineFields;
+        public readonly Quaternion rangeRotation;
+
+        public Data(Dictionary<string, object> boxFields, Dictionary<string, object> machineFields, Quaternion rangeRotation)
+        {
+            this.boxFields = boxFields;
+            this.machineFields = machineFields;
+            this.rangeRotation = rangeRotation;
+        }
+    }
 }
