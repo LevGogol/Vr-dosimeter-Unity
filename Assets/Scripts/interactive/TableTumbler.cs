@@ -8,30 +8,37 @@ public class TableTumbler : Interactive
     private AudioSource click;
     [SerializeField] private AudioClip onSound;
     [SerializeField] private AudioClip offSound;
-    
-    private bool isOn = true;
 
-    public bool IsOn {
-        get => isOn;
-        set {
-            if(isOn == value) return;
-            
-            transform.parent.parent.Rotate(new Vector3(0, 180, 0));
-            isOn = value;
-            box.SetScoreboard(isOn);
-            
-            if (isOn) {
-                click.clip = onSound;
-            } else {
-                click.clip = offSound;
-            }
-            click.Play();
+    private bool isOnTumbler = true;
+
+    public void Click()
+    {
+        bool isOnScoreboard = box.IsEnabledScoreboard();
+        box.SetScoreboard(!isOnScoreboard);
+        bool isOnTumblerNow = box.IsEnabledScoreboard();
+
+        RotationTumbler();
+        ClickSound(isOnTumblerNow);
+        isOnTumbler = isOnTumblerNow;
+    }
+
+    public void RotationTumbler()
+    {
+        if (box.IsEnabledScoreboard() != isOnTumbler)
+        {
+            transform.parent.parent.Rotate(0, 180, 0);
+            isOnTumbler = box.IsEnabledScoreboard();
         }
     }
-    
+
+    private void ClickSound(bool isOn)
+    {
+        click.clip = isOn ? onSound : offSound;
+        click.Play();
+    }
+
     public override void Action() {
-        IsOn = !isOn;
-        //    transform.Rotate(new Vector3(0, 180, 0));   не работает пока у моделек нет центра
+        Click();
     }
 
     private void Start()

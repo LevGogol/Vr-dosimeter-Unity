@@ -16,6 +16,9 @@ public class RoundTumbler : Interactive
         click.Play();
     }
 
+    public Quaternion GetRotation() => transform.parent.parent.rotation;
+    
+
     private void Start()
     {
         if (box == null)
@@ -27,5 +30,14 @@ public class RoundTumbler : Interactive
             }
         }
         click = GetComponent<AudioSource>();
+    }
+
+    public void SetRotation(Quaternion rangeRotation)
+    {
+        //TODO: баг с поворотом, сделать нормально.ы
+        var parent = transform.parent.parent;
+        parent.rotation = rangeRotation;
+        /*Quaternion r = parent.rotation;
+        parent.rotation = new Quaternion(r.x, rangeRotation.y, r.z, r.w);*/
     }
 }

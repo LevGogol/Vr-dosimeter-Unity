@@ -23,6 +23,7 @@ public class Box : MonoBehaviour
     private bool isTest = false;
 
     public Tablo tablo;
+    private bool changeTablo = true;
 
     public bool IsPower() => powerButton;
     public void SetPower(bool enabled)
@@ -77,52 +78,83 @@ public class Box : MonoBehaviour
     private void Start()
     {
         machine = BuildStateMachine();
+        BoxSaver.Instance.StateSave();
     }
 
     private StateMachine BuildStateMachine()
     {
         var inactive = new StateMachine.State();
-                var preparationForWork = new StateMachine.State();
-                var active = new StateMachine.State();
-                var activeWithoutScoreboard = new StateMachine.State();
-                var activeAlongWithScoreboard = new StateMachine.State();
-                var pressTestButton = new StateMachine.State();
-                var test = new StateMachine.State();
-        
-                var stMachine = new StateMachine()
-                    .Enter(inactive)
-                    .Add(preparationForWork)
-                    .Add(activeWithoutScoreboard)
-                    .Add(activeAlongWithScoreboard)
-                    .Add(pressTestButton)
-                    .Add(test);
-        
-                inactive.Add(new StateMachine.Transition(IsPower, ActivePayload, preparationForWork));
-        
-                var powerOffTransition = new StateMachine.Transition(() => !IsPower(), () => {powerOff(); Debug.Log("Power Off");}, inactive);
-                preparationForWork
-                    .Add(new StateMachine.Transition(() => isPrepared, () => { Debug.Log("Box active"); }, active))
-                    .Add(powerOffTransition);
-        
-                active.Add(new StateMachine.Transition(IsEnabledScoreboard, () => {Debug.Log("EnabledScoreboard state"); }, activeWithoutScoreboard))
-                    .Add(new StateMachine.Transition(() => !IsEnabledScoreboard(), () => {Debug.Log("DisabledScoreboard state"); }, activeAlongWithScoreboard));
-        
-                var pressTestTransition = new StateMachine.Transition(() => testButton, WaitForTestToStart, pressTestButton);
-                activeWithoutScoreboard.Add(pressTestTransition)
-                    .Add(powerOffTransition)
-                    .Add(new StateMachine.Transition(() => !scoreboardButton, () => {UpdateScoreboard(scoreboardButton);}, activeAlongWithScoreboard));
-                activeAlongWithScoreboard.Add(pressTestTransition)
-                    .Add(powerOffTransition)
-                    .Add(new StateMachine.Transition(() => scoreboardButton, () => {UpdateScoreboard(scoreboardButton);}, activeWithoutScoreboard));
-        
-                pressTestButton.Add(new StateMachine.Transition(() => isTest, startTest, test))
-                    .Add(powerOffTransition)
-                    .Add(new StateMachine.Transition(() => !testButton, () => { Debug.Log("Active state"); }, active));
-        
-                test.Add(new StateMachine.Transition(() => !IsPower(), () => {endTest(); powerOff();}, inactive))
-                    .Add(new StateMachine.Transition(() => !testButton, endTest, active));
+        var preparationForWork = new StateMachine.State();
+        var changeScoreboardBeforeActive = new StateMachine.State();
+        var active = new StateMachine.State();
+        var activeWithoutScoreboard = new StateMachine.State();
+        var activeAlongWithScoreboard = new StateMachine.State();
+        var pressTestButton = new StateMachine.State();
+        var test = new StateMachine.State();
 
-                return stMachine;
+        var stMachine = new StateMachine()
+            .Enter(inactive)
+            .Add(preparationForWork)
+            .Add(changeScoreboardBeforeActive)
+            .Add(activeWithoutScoreboard)
+            .Add(activeAlongWithScoreboard)
+            .Add(pressTestButton)
+            .Add(test);
+
+        inactive.Add(new StateMachine.Transition(IsPower, ActivePayload, preparationForWork));
+
+        var powerOffTransition = new StateMachine.Transition(() => !IsPower(), () =>
+        {
+            powerOff();
+            Debug.Log("Power Off");
+        }, inactive);
+        preparationForWork
+            .Add(new StateMachine.Transition(() => isPrepared, () => { Debug.Log("Box active"); }, active))
+            .Add(powerOffTransition)
+            .Add(new StateMachine.Transition(() => changeTablo, ChangeTablo, changeScoreboardBeforeActive));
+        
+        changeScoreboardBeforeActive.Add(new StateMachine.Transition(IsEnabledScoreboard, () => { }, preparationForWork))
+            .Add(new StateMachine.Transition(() => !IsEnabledScoreboard(),() => { }, preparationForWork));
+
+        active.Add(new StateMachine.Transition(IsEnabledScoreboard, () => { Debug.Log("EnabledScoreboard state"); },
+                activeWithoutScoreboard))
+            .Add(new StateMachine.Transition(() => !IsEnabledScoreboard(),
+                () => { Debug.Log("DisabledScoreboard state"); }, activeAlongWithScoreboard));
+
+        var pressTestTransition = new StateMachine.Transition(() => testButton, WaitForTestToStart, pressTestButton);
+        activeWithoutScoreboard.Add(pressTestTransition)
+            .Add(powerOffTransition)
+            .Add(new StateMachine.Transition(() => !scoreboardButton, () => { UpdateScoreboard(scoreboardButton); },
+                activeAlongWithScoreboard));
+        activeAlongWithScoreboard.Add(pressTestTransition)
+            .Add(powerOffTransition)
+            .Add(new StateMachine.Transition(() => scoreboardButton, () => { UpdateScoreboard(scoreboardButton); },
+                activeWithoutScoreboard));
+
+        pressTestButton.Add(new StateMachine.Transition(() => isTest, startTest, test))
+            .Add(powerOffTransition)
+            .Add(new StateMachine.Transition(() => !testButton, () => { Debug.Log("Active state"); }, active));
+
+        test.Add(new StateMachine.Transition(() => !IsPower(), () =>
+            {
+                endTest();
+                powerOff();
+            }, inactive))
+            .Add(new StateMachine.Transition(() => !testButton, endTest, active));
+
+        return stMachine;
+    }
+
+    private void ChangeTablo()
+    {
+        changeTablo = false; 
+        machine.MoveAfter("box", 100, () => changeTablo = true);
+        if (IsEnabledScoreboard() == false)
+        {
+            UpdateScoreboard(IsEnabledScoreboard());
+            Debug.Log("You Dead!");
+            BoxSaver.Instance.StateLoad(0);
+        }
     }
 
     private void ActivePayload()
@@ -130,14 +162,14 @@ public class Box : MonoBehaviour
         powerOn();
         if (!isPrepared)
         {
-            machine.MoveAfter(FIVE_MINUTE, () => isPrepared = true);
+            machine.MoveAfter("box", FIVE_MINUTE, () => isPrepared = true);
         }
     }
 
     private void WaitForTestToStart()
     {
         isTest = false;
-        machine.MoveAfter(TEN_SECOND, () =>
+        machine.MoveAfter("box", TEN_SECOND, () =>
         {
             if (testButton)
             {
