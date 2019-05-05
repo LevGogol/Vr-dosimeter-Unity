@@ -10,27 +10,36 @@ public class PowerTumbler : Interactive {
     [SerializeField] private AudioClip onSound;
     [SerializeField] private AudioClip offSound;
     
-    private bool isOn = false;
+    private bool isOnTumbler = false;
 
-    public bool IsOn {
-        get => isOn;
-        set {
-            if(isOn == value) return;
-            
-            transform.parent.parent.Rotate(new Vector3(0, 180, 0)); 
-            isOn = value;
-            box.SetPower(isOn);
-            if (isOn) {
-                click.clip = onSound;
-            } else {
-                click.clip = offSound;
-            }
-            click.Play();
+    public void Click()
+    {
+        bool isOnPower = box.IsPower();
+        box.SetPower(!isOnPower);
+        bool isOnTumblerNow = box.IsPower();
+
+        RotationTumbler();
+        ClickSound(isOnTumblerNow);
+        isOnTumbler = isOnTumblerNow;
+    }
+
+    public void RotationTumbler()
+    {
+        if (box.IsPower() != isOnTumbler)
+        {
+            transform.parent.parent.Rotate(0, 180, 0);
+            isOnTumbler = box.IsPower();
         }
+    }
+
+    private void ClickSound(bool isOn)
+    {
+        click.clip = isOn ? onSound : offSound;
+        click.Play();
     }
     
     public override void Action() {
-        IsOn = !isOn;
+        Click();
     }
 
     private void Start()
