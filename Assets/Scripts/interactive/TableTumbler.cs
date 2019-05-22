@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRTK;
 
 public class TableTumbler : Interactive
 {
@@ -10,6 +11,26 @@ public class TableTumbler : Interactive
     [SerializeField] private AudioClip offSound;
 
     private bool isOnTumbler = true;
+    
+    bool isTouch = false;
+    
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.GetComponent<VRTK_InteractNearTouchCollider>() != null)
+        {
+            isTouch = true;
+        }
+        
+    }
+    
+    void OnTriggerExit(Collider collider)
+    {
+        if (collider.gameObject.GetComponent<VRTK_InteractNearTouchCollider>() != null)
+        {
+            isTouch = false;
+        }
+        
+    }
 
     public void Click()
     {
@@ -38,7 +59,10 @@ public class TableTumbler : Interactive
     }
 
     public override void Action() {
-        Click();
+        if(isTouch)
+        {
+            Click();
+        }
     }
 
     private void Start()
